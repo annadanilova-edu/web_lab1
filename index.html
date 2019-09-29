@@ -1,16 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html langsearch-txt="en">
 <head>
     <meta charset="UTF-8">
     <title>Lab1</title>
+    <link rel="stylesheet/less" type="text/css" href="styles.less" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
     <script src="index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.js"></script>
 </head>
-<input id="city-input">
-<button id="search-button" onclick="getWeather()">Найти</button>
-<div id="result">
-</div>
+<div class="grid">
+    <div class="search">
+       <input type="text" placeholder="City Name" id="search-txt">
+        <button id="search-btn">Search</button>
+    </div>
 
+    <div class="name" id="name"></div>
+    <div class="temp" id="temp"></div>
+    <div class="weather" id="weather"></div>
+    <div class="wind" id="wind"></div>
+    <div class="humidity" id="humidity"></div>
+
+</div>
 <script>
 
 </script>
