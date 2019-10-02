@@ -1,17 +1,20 @@
-@primary: #8EBCFD;
+@primary: #99C2FC;
 @accent: #036CFE;
 
 .grid{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 50px 2fr 1fr;
-  width: 400px;
-  height: 350px;
 
+  width: 450px;
+  height: 350px;
+  background-color: lighten(@primary, 10%);
   margin: 10vh auto;
   border-radius: 25px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 saturate(@primary, 50%);
   padding: 15px;
+  font-family: Courier;
 }
 .search{
   padding: 15px;
@@ -41,4 +44,15 @@
 .humidity{
   grid-column: 3;
   grid-row: 3;
+}
+.search-btn{
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+  background-color: saturate(@primary, 60%);
+  font-family: Courier;
+  font-size: 15px;
+}
+.search-txt{
+  font-family: Courier;
 }

@@ -32,16 +32,21 @@ function getWeather(){
             }
             else {
                 alert("Ошибка HTTP: " + response.status);
-                name.innerText = temp.innetText = wind.innerText = weather.innerText = humidity.innerText = "";
+                temp.innerText = name.innerText = wind.innerText = weather.innerText = humidity.innerText = "";
             }
         })
         .then(function(json) {
             console.log(json);
-            name.innerHTML = Mustache.render("{{name}}", json);
-            temp.innerHTML = Mustache.render("{{main.temp}}°C", json);
-            wind.innerHTML = Mustache.render("Wind:</br> {{wind.speed}} meter/sec", json);
-            weather.innerHTML = Mustache.render("{{weather.0.main}}", json);
-            humidity.innerHTML = Mustache.render("Humidity:</br> {{main.humidity}}%", json);
+            drawWeather(json);
         });
+}
+function drawWeather(json){
+    if (json) {
+        name.innerHTML = Mustache.render("{{name}}", json);
+        temp.innerHTML = Mustache.render("{{main.temp}}°C", json);
+        wind.innerHTML = Mustache.render("Wind:</br> {{wind.speed}} meter/sec", json);
+        weather.innerHTML = Mustache.render("{{weather.0.main}}", json);
+        humidity.innerHTML = Mustache.render("Humidity:</br> {{main.humidity}}%", json);
+    }
 }
 
