@@ -7,21 +7,14 @@
     <script src="index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.js"></script>
 </head>
-<div class="grid">
-    <div class="search">
+<body>
+<div class="grid" id="grid">
+    <form class="search" id="search" onsubmit="getWeather(event); return false">
        <input type="text" placeholder="City Name" id="search-txt" class="search-txt">
-        <button class="search-btn" id="search-btn">Search</button>
-    </div>
-
-    <div class="name" id="name"></div>
-    <div class="temp" id="temp"></div>
-    <div class="weather" id="weather"></div>
-    <div class="wind" id="wind"></div>
-    <div class="humidity" id="humidity"></div>
+        <input type="submit" class="search-btn" id="search-btn" value="Search">
+    </form>
 
 </div>
-<script>
-
-</script>
+<div class="warning" id="warning">Something goes wrong. Check city name.</div>
 </body>
 </html>
