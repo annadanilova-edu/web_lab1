@@ -9,11 +9,13 @@ const template = `<div class="name" id="name">{{name}}</div>
 
 async function handleSubmit(e) {
     grid  = document.getElementById("grid");
-    warning = document.getElementById("warning")
+    warning = document.getElementById("warning");
+
+    await clearForm();
 
     e.preventDefault();
-    if (e.target[0].value === ''){
-        warning.style.visibility = "visible";
+    if (e.target[0].value.trim() === ''){
+        warning.innerHTML = "Something goes wrong. Check city name.";
         return 'Empty value';
     }
     await drawWeather(await getWeatherData(e.target[0].value));
@@ -27,24 +29,28 @@ async function getWeatherData(inputValue) {
 
 
 async function drawWeather(weather) {
+    warning = document.getElementById('warning')
     if (weather.ok) {
         let json = await weather.json();
         await clearForm();
 
         if (json) {
-            warning.style.visibility = "hidden";
+            warning.innerText = "";
             grid.innerHTML += Mustache.render(template, json);
+            return true
         }
-        return true
+        warning.innerText = "Something goes wrong. Check city name.";
     }
-    warning.style.visibility = "visible";
+    warning.innerText = "Something goes wrong. Check city name.";
     return false
 }
 
 async function clearForm() {
-    let search = document.getElementById("search");
+    let search = document.getElementById('search');
+    grid  = document.getElementById('grid');
     grid.innerText = "";
     grid.appendChild(search);
+    return grid.innerText;
 }
 
 
